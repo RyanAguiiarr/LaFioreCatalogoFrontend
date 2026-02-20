@@ -1,0 +1,94 @@
+.carousel-pro-container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 1rem;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.carousel-pro-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  z-index: 20;
+}
+
+.carousel-pro-btn {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-olive);
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-pro-btn:hover {
+  background-color: var(--color-beige);
+  border-color: var(--color-deep-olive);
+  transform: scale(1.05);
+}
+
+.carousel-pro-btn svg {
+  stroke-width: 2;
+}
+
+.carousel-pro-track {
+  position: relative;
+  width: 100%;
+  max-width: 650px; /* Cartão ainda maior no desktop */
+  aspect-ratio: 3 / 4; /* Mais vertical e esticado */
+  perspective: 1000px;
+}
+
+@media (max-width: 768px) {
+  .carousel-pro-track {
+    max-width: 450px; /* Tamanho considerável para tablets */
+    height: auto; /* Permite que o aspect-ratio mantenha o formato vertical */
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-pro-track {
+    max-width: 320px; /* Quase a largura total da tela no mobile */
+    height: auto;
+  }
+}
+
+.carousel-pro-card {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  transform-origin: center center;
+  background-color: #111; /* in case image doesn't load immediately */
+}
+
+.carousel-pro-image-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.carousel-pro-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-pro-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dim effect for non-centered images */
+  pointer-events: none;
+}

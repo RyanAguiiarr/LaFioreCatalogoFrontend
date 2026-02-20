@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import Button from '../../components/Button/Button';
 import ProductCard, { type Product } from '../../components/ProductCard/ProductCard';
 import DualCarousel from '../../components/DualCarousel/DualCarousel';
+import CarouselSliderPro from '../../components/CarouselSliderPro/CarouselSliderPro';
 import useEmblaCarousel from 'embla-carousel-react';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import './Home.css';
@@ -10,11 +11,11 @@ import { Link } from 'react-router-dom';
 
 // Placeholder data based on the requested aesthetic
 const featuredProducts: Product[] = [
-  { id: '1', name: 'Colar Lumina', price: 1250.00, category: 'Colar', imageUrl: 'https://images.unsplash.com/photo-1599643478514-4a884e9c700e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-  { id: '2', name: 'Anel Éternité', price: 3400.00, category: 'Anel', imageUrl: 'https://images.unsplash.com/photo-1605100804763-247f66150ce8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-  { id: '3', name: 'Brincos Gota d\'Or', price: 980.00, category: 'Brinco', imageUrl: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-  { id: '4', name: 'Pulseira Oásis', price: 2100.00, category: 'Pulseira', imageUrl: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-  { id: '5', name: 'Anel Solitário', price: 5600.00, category: 'Anel', imageUrl: 'https://images.unsplash.com/photo-1622398925373-3f15ebbfedc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+  { id: '1', name: 'Product 1', price: 1250.00, category: 'Category', imageUrl: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+  { id: '2', name: 'Product 2', price: 3400.00, category: 'Category', imageUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+  { id: '3', name: 'Product 3', price: 980.00, category: 'Category', imageUrl: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+  { id: '4', name: 'Product 4', price: 2100.00, category: 'Category', imageUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+  { id: '5', name: 'Product 5', price: 5600.00, category: 'Category', imageUrl: 'https://images.unsplash.com/photo-1488161628813-04466f872be2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
 ];
 
 const Home: React.FC = () => {
@@ -55,7 +56,7 @@ const Home: React.FC = () => {
           style={{ y: heroY, opacity: heroOpacity }}
         >
           <img 
-            src="https://images.unsplash.com/photo-1543294001-f7cd5d7fb516?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+            src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
             alt="La Fiore Campaign" 
             className="hero-image"
           />
@@ -166,6 +167,32 @@ const Home: React.FC = () => {
         <DualCarousel products={featuredProducts} />
       </section>
 
+      {/* NEW SECTION: Mais Vendidos (Carousel Slider Pro) */}
+      <section className="best-sellers-section" style={{ padding: '6rem 0', backgroundColor: 'var(--color-background)' }}>
+        <div className="container" style={{ textAlign: 'center' }}>
+          <motion.span 
+            className="section-label" 
+            style={{ display: 'block', marginBottom: '1rem', color: 'var(--color-text-light)', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.85rem' }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Nossa Seleção
+          </motion.span>
+          <motion.h2 
+            style={{ fontSize: '2.5rem', color: 'var(--color-deep-olive)', fontFamily: 'var(--font-heading)' }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            Mais Vendidos
+          </motion.h2>
+        </div>
+        
+        <CarouselSliderPro products={featuredProducts} />
+      </section>
+
       {/* 4. Alternate Grid / Lifestyle Section */}
       <section className="lifestyle-section container">
         <div className="lifestyle-grid">
@@ -176,10 +203,10 @@ const Home: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Lifestyle" />
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Lifestyle" />
             <div className="grid-overlay">
-              <h3>Coleção Noivas</h3>
-              <Button variant="outline" className="white-outline">Ver Coleção</Button>
+              <h3>Teste Imagem Grande</h3>
+              <Button variant="outline" className="white-outline">Ver Detalhes</Button>
             </div>
           </motion.div>
 
@@ -191,10 +218,10 @@ const Home: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="text-card bg-sage">
-              <h3>O Presente Perfeito</h3>
-              <p>Curadoria de especialistas para momentos inesquecíveis.</p>
+              <h3>Teste Imagem</h3>
+              <p>Texto de teste explicativo.</p>
               <Link to="/catalog" className="link-with-arrow">
-                Guia de Presentes <ArrowRight size={18} />
+                Acessar <ArrowRight size={18} />
               </Link>
             </div>
           </motion.div>
@@ -206,7 +233,7 @@ const Home: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Detail" />
+            <img src="https://images.unsplash.com/photo-1512413913426-3023b7e41ac8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Detail" />
           </motion.div>
         </div>
       </section>
