@@ -1,0 +1,155 @@
+.video-carousel-section {
+  position: relative;
+  width: 100%;
+  padding: 10rem 0;
+  /* Soft transition from the page background into the black section */
+  background: linear-gradient(to top, rgba(0,0,0,0) 0px, #000 150px, #000 calc(90% - 150px), rgba(0,0,0,0) 100%);
+  color: #fff;
+  /* Mask the entire section and its contents (including ambilight) to fade flawlessly into transparency */
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0px, black 150px, black calc(90% - 150px), rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0px, black 150px, black calc(90% - 150px), rgba(0,0,0,0) 100%);
+}
+
+/* --- AmbiLight Background --- */
+.ambilight-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.5);
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.6; /* Adjust intensity */
+  pointer-events: none;
+  filter: blur(80px); /* The magic glow */
+  transition: opacity 0.5s ease;
+}
+
+.ambilight-background video,
+.ambilight-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.8s ease;
+}
+
+/* Ensure the background doesn't interfere */
+.video-carousel-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.carousel-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.carousel-header h2 {
+  font-size: 2.5rem;
+  font-family: var(--font-heading);
+  color: #fff; /* Keep title white for contrast on dark glowing bg */
+}
+
+/* --- Embla Carousel --- */
+.embla-video {
+  overflow: hidden;
+  padding: 2rem 0; /* Room for scaling active items */
+}
+
+.embla__container__video {
+  display: flex;
+  gap: 2rem;
+  align-items: center; /* Center vertically for scaling */
+  padding-left: calc(50% - 160px); /* Center the first 320px wide slide */
+  padding-right: 50%; /* Give space to scroll to the end */
+}
+
+/* Responsive centering */
+@media (min-width: 768px) {
+  .embla__container__video {
+    padding-left: calc(50% - 200px); /* Center the 400px wide slide */
+  }
+}
+
+.embla__slide__video {
+  flex: 0 0 320px; 
+  min-width: 0;
+  aspect-ratio: 9/16;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s ease;
+  transform: scale(0.85); /* Inactive items are smaller */
+  opacity: 0.5;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  background-color: #111;
+}
+
+@media (min-width: 768px) {
+  .embla__slide__video {
+    flex: 0 0 400px;
+  }
+}
+
+.embla__slide__video.is-active {
+  transform: scale(1); /* Active item is full size */
+  opacity: 1;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.slide-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none; /* Let the slide handle clicks if needed */
+}
+
+.slide-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 3rem 1.5rem 1.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.1), transparent);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.slide-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* Controls */
+.video-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  position: relative;
+  z-index: 10;
+}
+
+.video-controls button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.video-controls button:hover {
+  background: #fff;
+  color: var(--color-deep-olive);
+  border-color: #fff;
+}

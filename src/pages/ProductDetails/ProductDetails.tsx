@@ -73,6 +73,11 @@ const ProductDetails: React.FC = () => {
       return;
     }
 
+    if (!productData || !productData.ativo) {
+      setLoading(false);
+      return; // Will leave product as null, triggering the error render below
+    }
+
     setProduct(productData);
 
     // Fetch variants
@@ -91,7 +96,15 @@ const ProductDetails: React.FC = () => {
   };
 
   if (loading) return <div className="loading-container">Carregando detalhes...</div>;
-  if (!product) return <div className="error-container">Produto não encontrado.</div>;
+  if (!product) return (
+    <div className="error-container" style={{ padding: '150px 0', textAlign: 'center' }}>
+      <h2>Produto Indisponível</h2>
+      <p style={{ color: 'var(--color-text-light)', marginTop: '1rem', marginBottom: '2rem' }}>Desculpe, esta joia não está disponível no momento.</p>
+      <Link to="/catalog">
+        <Button variant="outline">Voltar ao Catálogo</Button>
+      </Link>
+    </div>
+  );
 
   const images = product.imagens_url && product.imagens_url.length > 0 
     ? product.imagens_url 

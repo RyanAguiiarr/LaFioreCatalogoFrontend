@@ -38,15 +38,6 @@ const Footer: React.FC = () => {
             <li><Link to="/faq">FAQ</Link></li>
           </ul>
         </div>
-
-        <div className="footer-links-group">
-          <h4>Jurídico</h4>
-          <ul>
-            <li><Link to="/privacy">Privacidade</Link></li>
-            <li><Link to="/terms">Termos de Uso</Link></li>
-            <li><Link to="/refunds">Política de Reembolso</Link></li>
-          </ul>
-        </div>
       </div>
       
       <div className="footer-bottom">

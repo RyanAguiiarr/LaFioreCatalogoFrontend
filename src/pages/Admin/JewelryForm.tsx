@@ -27,6 +27,10 @@ const JewelryForm: React.FC = () => {
   const [categoria, setCategoria] = useState('ANEL');
   const [preco, setPreco] = useState('');
   const [ativo, setAtivo] = useState(true);
+
+  const [destaqueNovidade, setDestaqueNovidade] = useState(false);
+  const [destaqueInspiracao, setDestaqueInspiracao] = useState(false);
+  const [destaqueMaisVendido, setDestaqueMaisVendido] = useState(false);
   const [imagensUrl, setImagensUrl] = useState<string[]>([]);
 
   // Variants State
@@ -49,6 +53,9 @@ const JewelryForm: React.FC = () => {
       setCategoria(joia.categoria);
       setPreco(joia.preco.toString());
       setAtivo(joia.ativo);
+      setDestaqueNovidade(joia.destaque_novidade || false);
+      setDestaqueInspiracao(joia.destaque_inspiracao || false);
+      setDestaqueMaisVendido(joia.destaque_mais_vendido || false);
       setImagensUrl(joia.imagens_url || []);
       
       // Fetch Variantes
@@ -130,6 +137,9 @@ const JewelryForm: React.FC = () => {
       categoria,
       preco: parseFloat(preco) || 0,
       ativo,
+      destaque_novidade: destaqueNovidade,
+      destaque_inspiracao: destaqueInspiracao,
+      destaque_mais_vendido: destaqueMaisVendido,
       imagens_url: imagensUrl
     };
 
@@ -217,7 +227,28 @@ const JewelryForm: React.FC = () => {
 
               <div className="checkbox-group">
                 <input type="checkbox" id="ativo" checked={ativo} onChange={e => setAtivo(e.target.checked)} />
-                <label htmlFor="ativo">Exibir publicamente no catálogo</label>
+                <label htmlFor="ativo">Exibir publicamente no catálogo geral</label>
+              </div>
+
+              <div style={{ marginTop: '1.5rem', marginBottom: '0.5rem' }}>
+                <h3 style={{ fontSize: '1rem', color: 'var(--color-deep-olive)' }}>Exibição na Home (Opcional)</h3>
+                <p style={{ fontSize: '0.85rem', color: 'var(--color-text-light)', marginBottom: '1rem' }}>
+                  Marque em quais seções da página inicial este produto deve aparecer destaque.
+                </p>
+                <div className="checkbox-list" style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                  <div className="checkbox-group">
+                    <input type="checkbox" id="destaqueNovidade" checked={destaqueNovidade} onChange={e => setDestaqueNovidade(e.target.checked)} />
+                    <label htmlFor="destaqueNovidade">Novidades (Carrossel principal)</label>
+                  </div>
+                  <div className="checkbox-group">
+                    <input type="checkbox" id="destaqueInspiracao" checked={destaqueInspiracao} onChange={e => setDestaqueInspiracao(e.target.checked)} />
+                    <label htmlFor="destaqueInspiracao">Inspiração Infinita (Carrossel duplo vertical)</label>
+                  </div>
+                  <div className="checkbox-group">
+                    <input type="checkbox" id="destaqueMaisVendido" checked={destaqueMaisVendido} onChange={e => setDestaqueMaisVendido(e.target.checked)} />
+                    <label htmlFor="destaqueMaisVendido">Mais Vendidos (Carrossel inferior)</label>
+                  </div>
+                </div>
               </div>
             </section>
 
