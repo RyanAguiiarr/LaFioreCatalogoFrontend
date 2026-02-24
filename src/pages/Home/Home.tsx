@@ -212,7 +212,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* NEW SECTION: Mais Vendidos (Carousel Slider Pro) */}
-      <section className="best-sellers-section" style={{ padding: '6rem 0', backgroundColor: 'var(--color-background)' }}>
+      <section className="best-sellers-section" style={{ padding: '6rem 0', backgroundColor: 'var(--color-background)', overflowX: 'hidden', width: '100%' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <motion.span 
             className="section-label" 
