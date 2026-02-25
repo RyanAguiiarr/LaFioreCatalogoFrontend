@@ -43,21 +43,21 @@
 .carousel-pro-track {
   position: relative;
   width: 100%;
-  max-width: 650px; /* Cartão ainda maior no desktop */
-  aspect-ratio: 3 / 4; /* Mais vertical e esticado */
+  max-width: 450px; /* Reduced from 650px */
+  aspect-ratio: 3 / 4; 
   perspective: 1000px;
 }
 
 @media (max-width: 768px) {
   .carousel-pro-track {
-    max-width: 450px; /* Tamanho considerável para tablets */
-    height: auto; /* Permite que o aspect-ratio mantenha o formato vertical */
+    max-width: 340px; /* Reduced from 450px */
+    height: auto; 
   }
 }
 
 @media (max-width: 480px) {
   .carousel-pro-track {
-    max-width: 320px; /* Quase a largura total da tela no mobile */
+    max-width: 260px; /* Reduced from 320px */
     height: auto;
   }
 }

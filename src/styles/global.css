@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 
 :root {
-  --color-soft-sage: #ACC8A2;
-  --color-deep-olive: #1A2517;
+  --color-soft-sage: #3a4f36; 
+  --color-deep-olive: #ACC8A2; 
   
-  --color-background: #ffffff;
-  --color-background-alt: #f8f9f8;
-  --color-text: #1A2517;
-  --color-text-light: #5a6b57;
-  --color-border: rgba(26, 37, 23, 0.1);
+  --color-background: #0a0e09; 
+  --color-background-alt: rgba(16, 24, 15, 0.6); 
+  --color-text: #e0e6df; 
+  --color-text-light: #9ab095; 
+  --color-border: rgba(172, 200, 162, 0.15); 
 
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Inter', sans-serif;
@@ -31,6 +31,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
   overflow-x: hidden;
+  position: relative;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {

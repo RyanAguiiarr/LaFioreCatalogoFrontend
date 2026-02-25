@@ -5,6 +5,8 @@
   justify-content: center;
   background-color: var(--color-background-alt);
   padding: 2rem;
+  width: 100%;
+  overflow-x: clip;
 }
 
 .login-container {

@@ -11,13 +11,20 @@ interface CarouselSliderProProps {
 export const CarouselSliderPro: React.FC<CarouselSliderProProps> = ({ products }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const nextSlide = () => {
+  const nextSlide = React.useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % products.length);
-  };
+  }, [products.length]);
 
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev - 1 + products.length) % products.length);
   };
+
+  React.useEffect(() => {
+    if (products && products.length > 1) {
+      const interval = setInterval(nextSlide, 3000);
+      return () => clearInterval(interval);
+    }
+  }, [nextSlide, products]);
 
   if (!products || products.length === 0) return null;
 

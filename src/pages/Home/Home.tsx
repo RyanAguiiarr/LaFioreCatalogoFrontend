@@ -18,6 +18,7 @@ import video1 from '../../assets/videos/video1.mp4';
 import video2 from '../../assets/videos/video2.mp4';
 import video3 from '../../assets/videos/video3.mp4';
 import video4 from '../../assets/videos/video4.mp4';
+import mainHeroImage from '../../assets/hero/main-hero.png';
 
 const demoVideos: VideoMedia[] = [
   { id: '1', type: 'video', url: video1, title: 'Novas Formas' },
@@ -109,7 +110,7 @@ const Home: React.FC = () => {
           style={{ y: heroY, opacity: heroOpacity }}
         >
           <img 
-            src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+            src={mainHeroImage} 
             alt="La Fiore Campaign" 
             className="hero-image"
           />
@@ -181,7 +182,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* NEW SECTION: Dual Vertical Infinite Carousel */}
-      <section className="infinite-carousel-section" style={{ padding: '2rem 0', backgroundColor: 'var(--color-background)', overflow: 'hidden' }}>
+      <section className="infinite-carousel-section" style={{ padding: '2rem 0', backgroundColor: 'var(--color-background)', overflow: 'clip' }}>
         <div className="container" style={{ marginBottom: '3rem', textAlign: 'center' }}>
           <motion.span 
             className="section-label" 
@@ -212,7 +213,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* NEW SECTION: Mais Vendidos (Carousel Slider Pro) */}
-      <section className="best-sellers-section" style={{ padding: '6rem 0', backgroundColor: 'var(--color-background)', overflowX: 'hidden', width: '100%' }}>
+      <section className="best-sellers-section" style={{ padding: '6rem 0', backgroundColor: 'var(--color-background)', overflowX: 'clip', width: '100%' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <motion.span 
             className="section-label" 

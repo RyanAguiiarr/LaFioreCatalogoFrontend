@@ -60,7 +60,7 @@ const Dashboard: React.FC = () => {
         </div>
       </div>
 
-      <div className="admin-content container">
+      <div className="admin-content container" style={{ marginTop: '2rem' }}>
         {loading ? (
           <p>Carregando dados...</p>
         ) : (

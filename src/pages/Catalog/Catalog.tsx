@@ -82,7 +82,7 @@ const Catalog: React.FC = () => {
         </div>
       </div>
 
-      <div className="catalog-grid container">
+      <div className="catalog-grid container" style={{ marginTop: '2rem' }}>
         {loading ? (
           <div className="loading-state">Carregando coleções...</div>
         ) : products.length > 0 ? (

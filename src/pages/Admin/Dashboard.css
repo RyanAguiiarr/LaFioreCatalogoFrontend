@@ -3,6 +3,8 @@
   min-height: 100vh;
   background-color: var(--color-background-alt);
   padding-bottom: 6rem;
+  width: 100%;
+  overflow-x: clip;
 }
 
 .admin-header {
